@@ -1,0 +1,71 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+exclude = [
+    "/.idea",
+    "/tests",
+    "/.git",
+    "/.gitignore",
+    "/.venv",
+    "/.ipynb_checkpoints",
+    "/applications",
+    "/docs",
+    "/examples",
+    "/experiments",
+    "/kaospy-env",
+    "/README.md",
+    "/paper",
+    "/sandbox",
+    "/todo"
+]
+[tool.hatch.build.targets.wheel]
+packages = ["src/kaospy"]
+
+
+[project]
+name = "kaosPy"
+version = "0.1.0"
+authors = [
+  { name="Hannah Franziska Loechel", email="hannahfranziska.loechel@uni-muenster.de" },
+    { name="Moritz Grunert", email="mgrunert@uni-muenster.de" },
+    { name="Sandra Clemens", email="sandra.clemens@uni-muenster.de" },
+
+]
+
+
+description = "Python package for encoding sequences using chaos game representation."
+keywords = ["chaos game representation", "cgr", "frequency chaos game representation", "fcgr", "sequence embedding",]
+
+
+readme = "READMEPYPI.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research"
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+requires-python = ">=3.13"
+dependencies = [
+    "numpy >= 2.2",
+    "matplotlib >= 3.10"
+]
+
+
+[project.urls]
+Homepage = "https://github.com/HFLoechel/kaosPy"
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+docs = [
+    "sphinx",
+    "furo",
+    "sphinx-autodoc-typehints",
+]
